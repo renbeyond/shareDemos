@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="70" android:drawable="@drawable/makeup_face_loading1" />
+    <item android:duration="70" android:drawable="@drawable/makeup_face_loading2" />
+    <item android:duration="70" android:drawable="@drawable/makeup_face_loading3" />
+    <item android:duration="70" android:drawable="@drawable/makeup_face_loading4" />
+    <item android:duration="70" android:drawable="@drawable/makeup_face_loading5" />
+    <item android:duration="70" android:drawable="@drawable/makeup_face_loading6" />
+    <item android:duration="70" android:drawable="@drawable/makeup_face_loading7" />
+    <item android:duration="70" android:drawable="@drawable/makeup_face_loading8" />
+    <item android:duration="70" android:drawable="@drawable/makeup_face_loading9" />
+    <item android:duration="70" android:drawable="@drawable/makeup_face_loading10" />
+    <item android:duration="70" android:drawable="@drawable/makeup_face_loading11" />
+    <item android:duration="70" android:drawable="@drawable/makeup_face_loading12" />
+    <item android:duration="70" android:drawable="@drawable/makeup_face_loading13" />
+    <item android:duration="70" android:drawable="@drawable/makeup_face_loading14" />
+    <item android:duration="70" android:drawable="@drawable/makeup_face_loading15" />
+</animation-list>
