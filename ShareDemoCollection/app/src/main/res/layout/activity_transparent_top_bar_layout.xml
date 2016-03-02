@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/app_main_color">
+
+        <TextView
+            android:id="@+id/back_btn"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textSize="16dp"
+            android:drawableLeft="@drawable/ic_back"
+            android:textColor="@color/app_main_color"
+            android:text="返回" />
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:textSize="24sp"
+            android:textColor="@color/app_main_bg_color"
+            android:gravity="center"
+            android:text="android知识分享交流"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

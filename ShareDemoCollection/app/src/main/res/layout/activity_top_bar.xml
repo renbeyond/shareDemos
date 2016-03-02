@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:topbar="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.demo.view.TopBarView
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/app_main_color"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+
+        topbar:leftColor="@color/green"
+        topbar:leftText="左边"
+        topbar:rightBackground="@drawable/ic_launcher"
+        topbar:titleColor="@color/window_background"
+        topbar:titleText="test" />
+
+
+
+</LinearLayout>
