@@ -30,29 +30,29 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.ImmersedAndSwitch"/>
+        <activity android:name=".milo.immersive.activity.ImmersedAndSwitch"/>
 
-        <activity android:name=".activity.TransparentTopBar"/>
+        <activity android:name=".milo.immersive.activity.TransparentTopBar"/>
 
-        <activity android:name=".activity.TestActivity"/>
+        <activity android:name=".milo.immersive.activity.TestActivity"/>
 
-        <activity android:name=".activity.FinalMainActivity"/>
+        <activity android:name=".bass.afinal.activity.FinalMainActivity"/>
 
-        <activity android:name=".activity.FinalBitmapTest"/>
+        <activity android:name=".bass.afinal.activity.FinalBitmapTest"/>
 
-        <activity android:name=".activity.FinalHttpTest"/>
+        <activity android:name=".bass.afinal.activity.FinalHttpTest"/>
 
-        <activity android:name=".activity.FinalDBTest"/>
+        <activity android:name=".bass.afinal.activity.FinalDBTest"/>
 
         <activity
-            android:name=".activity.UnityPlayerStartActivity"
+            android:name=".eric.ar.UnityPlayerStartActivity"
             android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">
         </activity>
 
-        <activity android:name=".activity.UnityPlayerActivity" />
+        <activity android:name=".eric.ar.UnityPlayerActivity" />
 
         <activity
-            android:name=".activity.UnityPlayerNativeActivity"
+            android:name=".eric.ar.UnityPlayerNativeActivity"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale">
             <meta-data
                 android:name="unityplayer.UnityActivity"
@@ -67,23 +67,23 @@
             android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">
         </activity>
 
-        <activity android:name=".activity.CameraMainActivity"/>
+        <activity android:name=".talon.camera.CameraMainActivity"/>
 
-        <activity android:name=".activity.CameraActivity"/>
+        <activity android:name=".talon.camera.CameraActivity"/>
 
-        <activity android:name=".activity.EventMainActivity"/>
+        <activity android:name=".eric.eventbus.activity.EventMainActivity"/>
 
-        <activity android:name=".activity.AnimationMainActivity"/>
+        <activity android:name=".bauer.animation.AnimationMainActivity"/>
 
-        <activity android:name=".activity.TopBarActivity"/>
+        <activity android:name=".milo.immersive.activity.TopBarActivity"/>
 
-        <activity android:name=".activity.AnimationActivity"/>
+        <activity android:name=".bauer.animation.AnimationActivity"/>
 
-        <activity android:name=".activity.ObjectAnimatorActivity"/>
+        <activity android:name=".bauer.animation.ObjectAnimatorActivity"/>
 
-        <activity android:name=".activity.GIFActivity"/>
+        <activity android:name=".bauer.animation.GIFActivity"/>
 
-        <activity android:name=".activity.PlaceActivity"/>
+        <activity android:name=".talon.image.PlaceActivity"/>
 
         <uses-library
             android:name="com.ti.s3d"

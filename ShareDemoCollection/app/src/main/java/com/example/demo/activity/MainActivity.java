@@ -8,12 +8,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
 import com.example.demo.R;
 import com.example.demo.adapter.MyAdapter;
+import com.example.demo.bauer.animation.AnimationMainActivity;
 import com.example.demo.constant.Constants;
 import com.example.demo.entity.DemoInfo;
+import com.example.demo.eric.ar.UnityPlayerStartActivity;
+import com.example.demo.eric.eventbus.activity.EventMainActivity;
+import com.example.demo.milo.immersive.activity.ImmersedAndSwitch;
+import com.example.demo.bass.afinal.activity.FinalMainActivity;
+import com.example.demo.talon.camera.CameraMainActivity;
+import com.example.demo.talon.image.PlaceActivity;
 
 import java.util.ArrayList;
 import java.util.List;
