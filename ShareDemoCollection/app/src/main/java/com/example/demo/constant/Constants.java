@@ -16,4 +16,6 @@ public class Constants {
     public static final DemoInfo demoInfo6 = new DemoInfo("6.自定义View、接口回调、UI模板设计", "Milo", "2015/11/26");
     public static final DemoInfo demoInfo7 = new DemoInfo("7.EventBus初步了解", "Eric", "2015/11/26");
     public static final DemoInfo demoInfo8 = new DemoInfo("8.图片合成", "Talon", "2016/02/25");
+    public static final DemoInfo demoInfo9 = new DemoInfo("9.断点续传下载", "Bass", "2016/03/03");
+
 }

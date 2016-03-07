@@ -30,6 +30,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".bass.breakpoint.BreakpointDownloadActivity"></activity>
+
         <activity android:name=".milo.immersive.activity.ImmersedAndSwitch"/>
 
         <activity android:name=".milo.immersive.activity.TransparentTopBar"/>
