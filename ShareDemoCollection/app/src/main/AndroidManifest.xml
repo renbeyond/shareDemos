@@ -46,6 +46,9 @@
 
         <activity android:name=".bass.afinal.activity.FinalDBTest"/>
 
+        <service android:name=".bass.breakpoint.DownloadService"/>
+
+
         <activity
             android:name=".eric.ar.UnityPlayerStartActivity"
             android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">
