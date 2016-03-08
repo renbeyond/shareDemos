@@ -30,6 +30,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".bass.breakpoint.BreakpointDownloadActivity"></activity>
+
         <activity android:name=".milo.immersive.activity.ImmersedAndSwitch"/>
 
         <activity android:name=".milo.immersive.activity.TransparentTopBar"/>
@@ -43,6 +45,9 @@
         <activity android:name=".bass.afinal.activity.FinalHttpTest"/>
 
         <activity android:name=".bass.afinal.activity.FinalDBTest"/>
+
+        <service android:name=".bass.breakpoint.DownloadService"/>
+
 
         <activity
             android:name=".eric.ar.UnityPlayerStartActivity"
