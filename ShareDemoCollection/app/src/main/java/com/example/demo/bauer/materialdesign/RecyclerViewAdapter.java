@@ -28,7 +28,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             "CollapsingToolbarLayout", //5
             "CardView", //6
             "RippleView",//7
-            "item9", "item10", "item11", "item12", "item13", "itme14"};
+            "Material EditText",//8
+            "item10", "item11", "item12", "item13", "itme14"};
 
     private Context mContext;
 
@@ -90,6 +91,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                     case 7:
                         mContext.startActivity(new Intent(mContext, RippleViewActivity.class));
+                        break;
+
+                    case 8:
+                        mContext.startActivity(new Intent(mContext, MaterialEditTextActivity.class));
                         break;
 
                 }

@@ -94,6 +94,8 @@
 
         <activity android:name=".bauer.materialdesign.RippleViewActivity"/>
 
+        <activity android:name=".bauer.materialdesign.MaterialEditTextActivity"/>
+
         <uses-library
             android:name="com.ti.s3d"
             android:required="false" />
