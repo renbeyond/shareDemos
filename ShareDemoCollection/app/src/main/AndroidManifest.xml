@@ -30,13 +30,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".bass.breakpoint.BreakpointDownloadActivity"></activity>
 
         <activity android:name=".milo.immersive.activity.ImmersedAndSwitch"/>
 
         <activity android:name=".milo.immersive.activity.TransparentTopBar"/>
 
         <activity android:name=".milo.immersive.activity.TestActivity"/>
+
+        <activity android:name=".milo.immersive.activity.TopBarActivity"/>
+
+        <activity android:name=".bass.breakpoint.BreakpointDownloadActivity"/>
 
         <activity android:name=".bass.afinal.activity.FinalMainActivity"/>
 
@@ -52,6 +55,8 @@
         </activity>
 
         <activity android:name=".eric.ar.UnityPlayerActivity" />
+
+        <activity android:name=".eric.eventbus.activity.EventMainActivity"/>
 
         <activity
             android:name=".eric.ar.UnityPlayerNativeActivity"
@@ -73,11 +78,9 @@
 
         <activity android:name=".talon.camera.CameraActivity"/>
 
-        <activity android:name=".eric.eventbus.activity.EventMainActivity"/>
+        <activity android:name=".talon.image.PlaceActivity"/>
 
         <activity android:name=".bauer.animation.AnimationMainActivity"/>
-
-        <activity android:name=".milo.immersive.activity.TopBarActivity"/>
 
         <activity android:name=".bauer.animation.AnimationActivity"/>
 
@@ -85,7 +88,11 @@
 
         <activity android:name=".bauer.animation.GIFActivity"/>
 
-        <activity android:name=".talon.image.PlaceActivity"/>
+        <activity android:name=".bauer.materialdesign.MaterialDesignMainActivity"/>
+
+        <activity android:name=".bauer.materialdesign.DesignDetailActivity"/>
+
+        <activity android:name=".bauer.materialdesign.RippleViewActivity"/>
 
         <uses-library
             android:name="com.ti.s3d"

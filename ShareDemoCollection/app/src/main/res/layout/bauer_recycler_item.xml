@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.andexert.library.RippleView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    rv_centered="true"
+    android:id="@+id/rippleView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    ripple:rv_type="rectangle">
+
+    <TextView
+        android:id="@+id/ripple_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="15dp"
+        android:textSize="24sp" />
+
+</com.andexert.library.RippleView>

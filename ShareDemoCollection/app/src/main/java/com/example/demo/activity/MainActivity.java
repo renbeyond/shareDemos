@@ -13,6 +13,7 @@ import com.example.demo.R;
 import com.example.demo.adapter.MyAdapter;
 import com.example.demo.bass.breakpoint.BreakpointDownloadActivity;
 import com.example.demo.bauer.animation.AnimationMainActivity;
+import com.example.demo.bauer.materialdesign.MaterialDesignMainActivity;
 import com.example.demo.constant.Constants;
 import com.example.demo.entity.DemoInfo;
 import com.example.demo.eric.ar.UnityPlayerStartActivity;
@@ -56,6 +57,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         infoList.add(Constants.demoInfo7);
         infoList.add(Constants.demoInfo8);
         infoList.add(Constants.demoInfo9);
+        infoList.add(Constants.demoInfo10);
 
     }
 
@@ -63,71 +65,50 @@ public class MainActivity extends Activity implements OnItemClickListener {
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Log.e("========", "position" + position);
+        Intent intent = new Intent();
         switch (position) {
             case 0:
-                Log.e("========", "position" + position);
-                Intent intent = new Intent();
                 intent.putExtra("one", "two");
                 intent.setClass(MainActivity.this, ImmersedAndSwitch.class);
-                startActivity(intent);
                 break;
 
             case 1:
-                Log.e("========", "position" + position);
-                intent = new Intent();
                 intent.setClass(MainActivity.this, FinalMainActivity.class);
-                startActivity(intent);
                 break;
 
             case 2:
-                Log.e("========", "position" + position);
-                intent = new Intent();
                 intent.setClass(MainActivity.this, UnityPlayerStartActivity.class);
-                startActivity(intent);
                 break;
 
             case 3:
-                Log.e("========", "position" + position);
-                intent = new Intent();
                 intent.setClass(MainActivity.this, CameraMainActivity.class);
-                startActivity(intent);
                 break;
 
             case 4:
-                Log.e("========", "position" + position);
-                intent = new Intent();
                 intent.setClass(MainActivity.this, AnimationMainActivity.class);
-                startActivity(intent);
                 break;
 
             case 5:
-                Log.e("========", "position" + position);
-                intent = new Intent();
                 intent.putExtra("one", "one");
                 intent.setClass(MainActivity.this, ImmersedAndSwitch.class);
-                startActivity(intent);
                 break;
 
             case 6:
-                Log.e("========", "position" + position);
-                intent = new Intent();
                 intent.setClass(MainActivity.this, EventMainActivity.class);
-                startActivity(intent);
                 break;
 
             case 7:
-                Log.e("========", "position" + position);
-                intent = new Intent();
                 intent.setClass(MainActivity.this, PlaceActivity.class);
-                startActivity(intent);
                 break;
 
             case 8:
-                Log.e("========", "position" + position);
-                intent = new Intent();
                 intent.setClass(MainActivity.this, BreakpointDownloadActivity.class);
-                startActivity(intent);
+                break;
+
+            case 9:
+                intent.setClass(MainActivity.this, MaterialDesignMainActivity.class);
                 break;
         }
+        startActivity(intent);
     }
 }
