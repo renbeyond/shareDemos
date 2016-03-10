@@ -49,6 +49,9 @@
 
         <activity android:name=".bass.afinal.activity.FinalDBTest"/>
 
+        <service android:name=".bass.breakpoint.DownloadService"/>
+
+
         <activity
             android:name=".eric.ar.UnityPlayerStartActivity"
             android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">
@@ -69,10 +72,10 @@
                 android:value="false" />
         </activity>
 
-        <activity
-            android:name="com.unity3d.player.VideoPlayer"
-            android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">
-        </activity>
+        <!--<activity-->
+            <!--android:name="com.unity3d.player.VideoPlayer"-->
+            <!--android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">-->
+        <!--</activity>-->
 
         <activity android:name=".talon.camera.CameraMainActivity"/>
 

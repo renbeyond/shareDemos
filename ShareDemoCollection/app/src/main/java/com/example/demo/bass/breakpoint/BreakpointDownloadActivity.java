@@ -20,7 +20,7 @@ import com.example.demo.R;
  */
 public class BreakpointDownloadActivity extends Activity implements View.OnClickListener{
     private final String TAG = "BreakpointDownloadActivity";
-    private final String MP3_URL = "http://dd.myapp.com/16891/0A81099808E86539B02F50CB5A3B5F86.apk?fsname=com.pictureAir_2.0_3.apk";
+    private final String MP3_URL = "http://ac-A7cn1GAf.clouddn.com/b143edcccc0310b1.mp3";
     private FileInfo fileInfo = null;
 
     private ProgressBar progressBar = null;
