@@ -6,9 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Window;
 
-import com.gc.materialdesigndemo.R;
-
-
+import com.example.demo.R;
 
 
 public class SwitchActivity extends Activity {
@@ -20,7 +18,7 @@ public class SwitchActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
     	requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_switchs);
+        setContentView(R.layout.bauer_activity_switchs);
         int color = getIntent().getIntExtra("BACKGROUND", Color.BLACK);
         findViewById(R.id.checkBox).setBackgroundColor(color);
         findViewById(R.id.switchView).setBackgroundColor(color);

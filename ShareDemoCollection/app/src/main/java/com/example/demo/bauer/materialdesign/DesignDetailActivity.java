@@ -1,11 +1,11 @@
 package com.example.demo.bauer.materialdesign;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -13,13 +13,19 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 
+import com.balysv.materialmenu.MaterialMenuDrawable;
 import com.example.demo.R;
+
+import java.util.Random;
 
 public class DesignDetailActivity extends AppCompatActivity implements View.OnClickListener{
     private TextInputLayout mTextInputLayout;
     private EditText mEditText;
     private FloatingActionButton floatingActionButton, floatingActionButton2;
 
+    private MaterialMenuDrawable materialMenu;
+
+    private int menuState;
 
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +34,20 @@ public class DesignDetailActivity extends AppCompatActivity implements View.OnCl
 
         Toolbar toolbar = (Toolbar) this.findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeAsUpIndicator(android.R.drawable.ic_input_delete);
-        actionBar.setDisplayHomeAsUpEnabled(true);
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setHomeAsUpIndicator(android.R.drawable.ic_input_delete);
+//        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        materialMenu = new MaterialMenuDrawable(this, Color.WHITE, MaterialMenuDrawable.Stroke.THIN);
+        toolbar.setNavigationIcon(materialMenu);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                menuState = generateState(menuState);
+                materialMenu.animateIconState(intToState(menuState));
+            }
+        });
+
 
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
@@ -67,6 +84,25 @@ public class DesignDetailActivity extends AppCompatActivity implements View.OnCl
         floatingActionButton2.setOnClickListener(this);
 
 
+    }
+
+    public static int generateState(int previous) {
+        int generated = new Random().nextInt(4);
+        return generated != previous ? generated : generateState(previous);
+    }
+
+    public static MaterialMenuDrawable.IconState intToState(int state) {
+        switch (state) {
+            case 0:
+                return MaterialMenuDrawable.IconState.BURGER;
+            case 1:
+                return MaterialMenuDrawable.IconState.ARROW;
+            case 2:
+                return MaterialMenuDrawable.IconState.X;
+            case 3:
+                return MaterialMenuDrawable.IconState.CHECK;
+        }
+        throw new IllegalArgumentException("Must be a number [0,3)");
     }
 
     @Override

@@ -27,6 +27,7 @@ public class RippleViewActivity extends AppCompatActivity implements View.OnClic
 
         rippleView.setOnClickListener(this);
         textView.setOnClickListener(this);
+
     }
 
     @Override

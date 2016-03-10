@@ -96,6 +96,21 @@
 
         <activity android:name=".bauer.materialdesign.MaterialEditTextActivity"/>
 
+        <activity android:name=".bauer.materialdesign.MaterialDesignLibActivity"/>
+
+        <activity android:name=".bauer.materialdesign.ButtonsActivity"/>
+
+        <activity android:name=".bauer.materialdesign.ProgressActivity"/>
+
+        <activity android:name=".bauer.materialdesign.SwitchActivity"/>
+
+        <activity android:name=".bauer.materialdesign.AndroidUIActivity"/>
+        
+        <activity android:name=".bauer.materialdesign.MaterialListActivity"/>
+
+        <activity android:name=".bauer.materialdesign.FABActivity"/>
+
+
         <uses-library
             android:name="com.ti.s3d"
             android:required="false" />

@@ -29,7 +29,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             "CardView", //6
             "RippleView",//7
             "Material EditText",//8
-            "item10", "item11", "item12", "item13", "itme14"};
+            "Material Design Library",//9
+            "Android UI",//10
+            "MaterialList",//11
+            "FAB",//12
+            "itme14"};
 
     private Context mContext;
 
@@ -95,6 +99,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                     case 8:
                         mContext.startActivity(new Intent(mContext, MaterialEditTextActivity.class));
+                        break;
+
+                    case 9:
+                        mContext.startActivity(new Intent(mContext, MaterialDesignLibActivity.class));
+                        break;
+
+                    case 10:
+                        mContext.startActivity(new Intent(mContext, AndroidUIActivity.class));
+                        break;
+
+                    case 11:
+                        mContext.startActivity(new Intent(mContext, MaterialListActivity.class));
+                        break;
+
+                    case 12:
+                        mContext.startActivity(new Intent(mContext, FABActivity.class));
                         break;
 
                 }

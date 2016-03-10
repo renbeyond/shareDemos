@@ -6,8 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Window;
 
-import com.gc.materialdesigndemo.R;
-
+import com.example.demo.R;
 
 
 public class ButtonsActivity extends Activity {
@@ -19,7 +18,7 @@ public class ButtonsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
     	requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buttons);
+        setContentView(R.layout.bauer_activity_buttons);
         int color = getIntent().getIntExtra("BACKGROUND", Color.BLACK);
         findViewById(R.id.buttonflat).setBackgroundColor(color);
         findViewById(R.id.button).setBackgroundColor(color);
