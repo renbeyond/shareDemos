@@ -37,6 +37,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         addData();
         lvInfo = (ListView) findViewById(R.id.lvInfo);
         myAdapter = new MyAdapter(this, infoList);
