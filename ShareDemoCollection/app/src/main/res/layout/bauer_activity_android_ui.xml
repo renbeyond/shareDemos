@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <at.markushi.ui.ActionView
+            android:id="@+id/back_action"
+            android:layout_width="56dip"
+            android:layout_height="56dip"
+            android:padding="16dip"
+            app:av_action="back"
+            app:av_color="@android:color/white" />
+
+        <at.markushi.ui.ActionView
+            android:id="@+id/close_action"
+            android:layout_width="56dip"
+            android:layout_height="56dip"
+            android:padding="16dip"
+            app:av_action="close"
+            app:av_color="@android:color/white" />
+
+        <at.markushi.ui.ActionView
+            android:id="@+id/drawer_action"
+            android:layout_width="56dip"
+            android:layout_height="56dip"
+            android:padding="16dip"
+            app:av_action="drawer"
+            app:av_color="@android:color/white" />
+
+        <at.markushi.ui.ActionView
+            android:id="@+id/plus_action"
+            android:layout_width="56dip"
+            android:layout_height="56dip"
+            android:padding="16dip"
+            app:av_action="plus"
+            app:av_color="@android:color/white" />
+
+        <com.balysv.materialmenu.MaterialMenuView
+            android:id="@+id/material_menu_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <at.markushi.ui.RevealColorView
+        android:id="@+id/reveal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

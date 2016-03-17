@@ -9,12 +9,11 @@
 *.class
  
 # Generated files
-bin/
 gen/
  
 # Gradle files
 /build
-*.gradle
+.gradle/
 *.idea
 build/
 gradle/
