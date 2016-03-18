@@ -18,6 +18,7 @@ import com.example.demo.constant.Constants;
 import com.example.demo.entity.DemoInfo;
 import com.example.demo.eric.ar.UnityPlayerStartActivity;
 import com.example.demo.eric.eventbus.activity.EventMainActivity;
+import com.example.demo.eric.ffmpeg.activity.FfmpegMainActivity;
 import com.example.demo.milo.immersive.activity.ImmersedAndSwitch;
 import com.example.demo.bass.afinal.activity.FinalMainActivity;
 import com.example.demo.talon.camera.CameraMainActivity;
@@ -37,9 +38,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         addData();
+
         lvInfo = (ListView) findViewById(R.id.lvInfo);
         myAdapter = new MyAdapter(this, infoList);
         lvInfo.setAdapter(myAdapter);
@@ -60,7 +60,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         infoList.add(Constants.demoInfo8);
         infoList.add(Constants.demoInfo9);
         infoList.add(Constants.demoInfo10);
-
+        infoList.add(Constants.demoInfo11);
     }
 
     //item单击事件
@@ -109,6 +109,10 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
             case 9:
                 intent.setClass(MainActivity.this, MaterialDesignMainActivity.class);
+                break;
+
+            case 10:
+                intent.setClass(MainActivity.this, FfmpegMainActivity.class);
                 break;
         }
         startActivity(intent);

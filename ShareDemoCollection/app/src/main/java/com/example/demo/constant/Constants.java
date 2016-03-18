@@ -18,5 +18,5 @@ public class Constants {
     public static final DemoInfo demoInfo8 = new DemoInfo("8.图片合成", "Talon", "2016/02/25");
     public static final DemoInfo demoInfo9 = new DemoInfo("9.断点续传下载", "Bass", "2016/03/03");
     public static final DemoInfo demoInfo10 = new DemoInfo("10.MD初涉", "Bauer", "2016/03/10");
-
+    public static final DemoInfo demoInfo11 = new DemoInfo("11.获取视频缩略图", "Eric", "2016/03/17");
 }

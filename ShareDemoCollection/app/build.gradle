@@ -44,4 +44,5 @@ dependencies {
     compile 'com.github.ksoichiro:android-observablescrollview:1.6.0'
     compile 'com.balysv.materialmenu:material-menu:1.5.4'
     compile 'com.wdullaer:materialdatetimepicker:2.2.0'
+    compile files('libs/fmmr.jar')
 }
