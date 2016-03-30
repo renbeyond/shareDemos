@@ -23,6 +23,7 @@ import com.example.demo.milo.immersive.activity.ImmersedAndSwitch;
 import com.example.demo.bass.afinal.activity.FinalMainActivity;
 import com.example.demo.talon.camera.CameraMainActivity;
 import com.example.demo.talon.image.PlaceActivity;
+import com.example.demo.talon.ocr.OcrActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +62,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         infoList.add(Constants.demoInfo9);
         infoList.add(Constants.demoInfo10);
         infoList.add(Constants.demoInfo11);
+        infoList.add(Constants.demoInfo13);
     }
 
     //item单击事件
@@ -113,6 +115,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
             case 10:
                 intent.setClass(MainActivity.this, FfmpegMainActivity.class);
+                break;
+            case 11:
+                intent.setClass(MainActivity.this, OcrActivity.class);
                 break;
         }
         startActivity(intent);

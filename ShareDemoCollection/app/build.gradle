@@ -45,4 +45,5 @@ dependencies {
     compile 'com.balysv.materialmenu:material-menu:1.5.4'
     compile 'com.wdullaer:materialdatetimepicker:2.2.0'
     compile files('libs/fmmr.jar')
+    compile files('libs/tess-two.tesseract3.01-leptonica1.68-LibJPEG6b.jar')
 }
