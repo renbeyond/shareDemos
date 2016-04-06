@@ -12,6 +12,7 @@ import android.widget.ListView;
 import com.example.demo.R;
 import com.example.demo.adapter.MyAdapter;
 import com.example.demo.bass.breakpoint.BreakpointDownloadActivity;
+import com.example.demo.bass.designPattern.mvp.view.MvpActivity;
 import com.example.demo.bauer.animation.AnimationMainActivity;
 import com.example.demo.bauer.materialdesign.MaterialDesignMainActivity;
 import com.example.demo.constant.Constants;
@@ -19,10 +20,12 @@ import com.example.demo.entity.DemoInfo;
 import com.example.demo.eric.ar.UnityPlayerStartActivity;
 import com.example.demo.eric.eventbus.activity.EventMainActivity;
 import com.example.demo.eric.ffmpeg.activity.FfmpegMainActivity;
+import com.example.demo.milo.commonadapter.activity.ListActivity;
 import com.example.demo.milo.immersive.activity.ImmersedAndSwitch;
 import com.example.demo.bass.afinal.activity.FinalMainActivity;
 import com.example.demo.talon.camera.CameraMainActivity;
 import com.example.demo.talon.image.PlaceActivity;
+import com.example.demo.talon.ocr.OcrActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +52,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
     //加载数据
     private void addData() {
-        infoList = new ArrayList<DemoInfo>();
+        infoList = new ArrayList<>();
         infoList.add(Constants.demoInfo1);
         infoList.add(Constants.demoInfo2);
         infoList.add(Constants.demoInfo3);
@@ -61,6 +64,10 @@ public class MainActivity extends Activity implements OnItemClickListener {
         infoList.add(Constants.demoInfo9);
         infoList.add(Constants.demoInfo10);
         infoList.add(Constants.demoInfo11);
+        infoList.add(Constants.demoInfo12);
+        infoList.add(Constants.demoInfo13);
+        infoList.add(Constants.demoInfo14);
+
     }
 
     //item单击事件
@@ -113,6 +120,16 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
             case 10:
                 intent.setClass(MainActivity.this, FfmpegMainActivity.class);
+                break;
+            case 11:
+                intent.setClass(MainActivity.this, ListActivity.class);
+                break;
+            case 12:
+                intent.setClass(MainActivity.this, OcrActivity.class);
+                break;
+
+            case 13:
+                intent.setClass(MainActivity.this, MvpActivity.class);
                 break;
         }
         startActivity(intent);

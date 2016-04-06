@@ -6,21 +6,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-
 import com.example.demo.R;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
- * Created by Eric on 16/2/25.
+ * Created by milo on 16/2/25.
  */
 public class ImmersedAndSwitch extends Activity {
-    @InjectView(R.id.btn_1)
+    @Bind(R.id.btn_1)
     Button btn1;
-    @InjectView(R.id.btn_2)
+    @Bind(R.id.btn_2)
     Button btn2;
-    @InjectView(R.id.btn_3)
+    @Bind(R.id.btn_3)
     Button btn3;
 
     private String one;
@@ -29,7 +28,7 @@ public class ImmersedAndSwitch extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.immersed_switch);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         btn3.setVisibility(View.GONE);
         initView();

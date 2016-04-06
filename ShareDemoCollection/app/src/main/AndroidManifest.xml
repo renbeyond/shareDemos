@@ -18,6 +18,23 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
+    <uses-feature android:glEsVersion="0x00020000" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.touchscreen.multitouch"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.touchscreen.multitouch.distinct"
+        android:required="false" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -32,6 +49,8 @@
             </intent-filter>
         </activity>
 
+
+        <!-- BASS START-->
         <activity android:name=".bass.breakpoint.BreakpointDownloadActivity" />
 
         <activity android:name=".bass.afinal.activity.FinalMainActivity" />
@@ -44,7 +63,10 @@
 
         <service android:name=".bass.breakpoint.DownloadService" />
 
-        <activity android:name=".bass.designPattern.mvp.view.MvpActivity"/>
+        <activity android:name=".bass.designPattern.mvp.view.MvpActivity" />
+
+        <service android:name=".bass.breakpoint.DownloadService" />
+        <!-- BASS END-->
 
         <activity android:name=".milo.immersive.activity.ImmersedAndSwitch" />
 
@@ -62,6 +84,7 @@
 
         <activity android:name=".eric.eventbus.activity.EventMainActivity" />
 
+
         <activity
             android:name=".eric.ar.UnityPlayerNativeActivity"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale">
@@ -72,7 +95,6 @@
                 android:name="unityplayer.ForwardNativeEventsToDalvik"
                 android:value="false" />
         </activity>
-
         <activity
             android:name="com.unity3d.player.VideoPlayer"
             android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"></activity>
@@ -82,6 +104,8 @@
         <activity android:name=".talon.camera.CameraActivity" />
 
         <activity android:name=".talon.image.PlaceActivity" />
+
+        <activity android:name=".talon.ocr.OcrActivity" />
 
         <activity android:name=".bauer.animation.AnimationMainActivity" />
 
@@ -115,6 +139,7 @@
 
         <activity android:name=".eric.ffmpeg.activity.FfmpegMainActivity" />
 
+        <activity android:name=".milo.commonadapter.activity.ListActivity" />
 
         <uses-library
             android:name="com.ti.s3d"
@@ -132,23 +157,8 @@
             android:name="design_height"
             android:value="1920"></meta-data>
         <!-- AutoLayout 设计尺寸 end-->
-    </application>
 
-    <uses-feature android:glEsVersion="0x00020000" />
-    <uses-feature
-        android:name="android.hardware.camera.autofocus"
-        android:required="false" />
-    <uses-feature
-        android:name="android.hardware.camera.front"
-        android:required="false" />
-    <uses-feature
-        android:name="android.hardware.touchscreen"
-        android:required="false" />
-    <uses-feature
-        android:name="android.hardware.touchscreen.multitouch"
-        android:required="false" />
-    <uses-feature
-        android:name="android.hardware.touchscreen.multitouch.distinct"
-        android:required="false" />
+
+    </application>
 
 </manifest>
