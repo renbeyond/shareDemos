@@ -10,8 +10,8 @@ import android.widget.TextView;
 import com.example.demo.R;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Created by milo on 15/9/6.
@@ -19,14 +19,14 @@ import butterknife.InjectView;
  */
 public class TransparentTopBar extends Activity {
 
-    @InjectView(R.id.back_btn)
+    @Bind(R.id.back_btn)
     TextView backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transparent_top_bar_layout);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         //设置半透明状态栏
         initWindow();
         backBtn.setOnClickListener(new View.OnClickListener() {

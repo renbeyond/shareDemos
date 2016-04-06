@@ -99,6 +99,7 @@
         <activity android:name=".bauer.materialdesign.MaterialListActivity" />
         <activity android:name=".bauer.materialdesign.FABActivity" />
         <activity android:name=".eric.ffmpeg.activity.FfmpegMainActivity" />
+        <activity android:name=".milo.commonadapter.activity.ListActivity"/>
 
         <uses-library
             android:name="com.ti.s3d"
