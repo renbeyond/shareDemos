@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="oppoR7：441ppi，所以1dp=2.75px..."/>
+
+            <Button
+                android:id="@+id/btn_singletion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100px"
+                android:text="单例模式 marginLeft100px" />
+
+            <Button
+                android:id="@+id/btn_builder"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="36.28dp"
+                android:layout_height="wrap_content"
+                android:text="builder模式 marginLeft36.36dp" />
+
+            <Button
+                android:id="@+id/btn_prototype"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="原型模式" />
+
+            <Button
+                android:id="@+id/btn_factory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="工厂方法模式" />
+
+            <Button
+                android:id="@+id/btn_abstract_factor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="抽象工厂模式" />
+
+            <Button
+                android:id="@+id/btn_strategy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="策略模式" />
+
+            <Button
+                android:id="@+id/btn_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="状态模式" />
+
+            <Button
+                android:id="@+id/btn_iterator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="责任链模式" />
+
+            <Button
+                android:id="@+id/btn_interpreter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="解释器模式" />
+
+            <Button
+                android:id="@+id/btn_command"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="命令模式" />
+
+            <Button
+                android:id="@+id/btn_observer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="观察者模式" />
+
+            <Button
+                android:id="@+id/btn_mement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="备忘录模式" />
+
+            <Button
+                android:id="@+id/btn_adapter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="适配器模式" />
+
+            <Button
+                android:id="@+id/btn_template"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="模版方法模式" />
+
+            <Button
+                android:id="@+id/btn_visitor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="访问者模式" />
+
+            <Button
+                android:id="@+id/btn_mediator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="中介者模式" />
+
+            <Button
+                android:id="@+id/btn_proxy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="代理模式" />
+
+            <Button
+                android:id="@+id/btn_composite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="组合模式" />
+
+            <Button
+                android:id="@+id/btn_cursor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="迭代器模式" />
+
+            <Button
+                android:id="@+id/btn_decorete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="装饰模式" />
+
+            <Button
+                android:id="@+id/btn_facade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="外观模式" />
+
+            <Button
+                android:id="@+id/btn_bridge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="桥接模式" />
+
+            <Button
+                android:id="@+id/btn_flyweight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="享元模式" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </ScrollView>
+
+</com.zhy.autolayout.AutoLinearLayout>
