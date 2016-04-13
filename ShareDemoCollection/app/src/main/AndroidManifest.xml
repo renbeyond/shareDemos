@@ -66,6 +66,8 @@
         <activity android:name=".bass.designPattern.mvp.view.MvpActivity" />
 
         <service android:name=".bass.breakpoint.DownloadService" />
+
+        <activity android:name=".bass.designPattern.mvvm.MVVMActivity"/>
         <!-- BASS END-->
 
         <activity android:name=".milo.immersive.activity.ImmersedAndSwitch" />

@@ -8,7 +8,7 @@ import com.example.demo.bass.designPattern.singleton.Singleton;
 /**
  * Created by bass on 16/3/30.
  */
-public class MvpPresenter {
+public class MvpPresenter extends BasePresenter<ViewInterface> {
 
     private ModelInterface modelInterface;
     private ViewInterface viewInterface;

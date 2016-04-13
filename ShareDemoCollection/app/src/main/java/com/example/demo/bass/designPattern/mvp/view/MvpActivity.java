@@ -1,7 +1,6 @@
 package com.example.demo.bass.designPattern.mvp.view;
 
-import android.app.Activity;
-import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -22,6 +21,7 @@ import com.example.demo.bass.designPattern.iterator.Iterator;
 import com.example.demo.bass.designPattern.mediator.MediatorDemo;
 import com.example.demo.bass.designPattern.memento.MementoDemo;
 import com.example.demo.bass.designPattern.mvp.presenter.MvpPresenter;
+import com.example.demo.bass.designPattern.mvvm.MVVMActivity;
 import com.example.demo.bass.designPattern.observer.ObserverDemo;
 import com.example.demo.bass.designPattern.proxy.ProxyDemo;
 import com.example.demo.bass.designPattern.state.StateDemo;
@@ -68,6 +68,8 @@ public class MvpActivity extends AutoLayoutActivity implements ViewInterface, Vi
         findViewById(R.id.btn_decorete).setOnClickListener(this);
         findViewById(R.id.btn_facade).setOnClickListener(this);
         findViewById(R.id.btn_bridge).setOnClickListener(this);
+        findViewById(R.id.btn_mvvm).setOnClickListener(this);
+
     }
 
     @Override
@@ -120,7 +122,7 @@ public class MvpActivity extends AutoLayoutActivity implements ViewInterface, Vi
                 CommandDemo.test();
                 showData("命令模式）");
                 break;
-            case R.id.btn_observer:
+            case R.id.btn_observer://
                 ObserverDemo.test();
                 showData("观察者模式）");
                 break;
@@ -128,18 +130,18 @@ public class MvpActivity extends AutoLayoutActivity implements ViewInterface, Vi
                 MementoDemo.test();
                 showData("备忘录模式）");
                 break;
-            case R.id.btn_adapter:
+            case R.id.btn_adapter://
                 showData("适配器模式）");
                 break;
-            case R.id.btn_template:
+            case R.id.btn_template://
                 TemplateMethod.test();
                 showData("模版方法模式）");
                 break;
-            case R.id.btn_visitor:
+            case R.id.btn_visitor://
                 VisitorDemo.test();
                 showData("访问者模式）");
                 break;
-            case R.id.btn_mediator:
+            case R.id.btn_mediator://
                 MediatorDemo.test();
                 showData("中介者模式）");
                 break;
@@ -148,29 +150,33 @@ public class MvpActivity extends AutoLayoutActivity implements ViewInterface, Vi
                 showData("代理模式）");
 
                 break;
-            case R.id.btn_composite:
+            case R.id.btn_composite://
                 ComponentDemo.test();
                 showData("组合模式）");
 
                 break;
-            case R.id.btn_cursor:
+            case R.id.btn_cursor://
                 Cursor.test();
                 showData("迭代器模式(不实用)");
 
                 break;
-            case R.id.btn_decorete:
+            case R.id.btn_decorete://
                 DecorateDemo.test();
                 showData("装饰模式");
 
                 break;
-            case R.id.btn_facade:
+            case R.id.btn_facade://
                 FacadeDemo.test();
                 showData("外观模式");
 
                 break;
-            case R.id.btn_bridge:
+            case R.id.btn_bridge://
                 DridgeDemo.test();
                 showData("桥接模式");
+                break;
+
+            case R.id.btn_mvvm://
+                startActivity(new Intent(MvpActivity.this, MVVMActivity.class));
                 break;
         }
     }
