@@ -159,6 +159,12 @@
                 android:layout_height="wrap_content"
                 android:text="享元模式" />
 
+            <Button
+                android:id="@+id/btn_mvvm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MVVM模式" />
+
         </com.zhy.autolayout.AutoLinearLayout>
 
     </ScrollView>
