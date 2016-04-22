@@ -47,4 +47,5 @@ dependencies {
     compile files('libs/fmmr.jar')
     compile 'com.zhy:autolayout:1.4.3'
     compile files('libs/tess-two.tesseract3.01-leptonica1.68-LibJPEG6b.jar')
+    compile files('libs/sqlcipher.jar')
 }

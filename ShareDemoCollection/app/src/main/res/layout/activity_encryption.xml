@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/encryption_md5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="MD5" />
+
+    <Button
+        android:id="@+id/encryption_sha1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="SHA1" />
+
+    <Button
+        android:id="@+id/encryption_base64"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Base64" />
+
+    <Button
+        android:id="@+id/encryption_aes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="AES" />
+
+    <Button
+        android:id="@+id/encryption_des"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="DES" />
+
+    <Button
+        android:id="@+id/encryption_rsa"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="RSA" />
+
+    <Button
+        android:id="@+id/encryption_diy"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="自定义加解密算法" />
+
+    <Button
+        android:id="@+id/encryption_sqlcipher"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="SQLCipher" />
+
+    <Button
+        android:id="@+id/encryption_https"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="HTTP + SSL" />
+
+    <Button
+        android:id="@+id/encryption_ndk"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="NDK" />
+</LinearLayout>

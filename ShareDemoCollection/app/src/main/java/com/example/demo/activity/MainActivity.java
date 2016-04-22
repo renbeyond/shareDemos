@@ -14,6 +14,7 @@ import com.example.demo.adapter.MyAdapter;
 import com.example.demo.bass.breakpoint.BreakpointDownloadActivity;
 import com.example.demo.bass.designPattern.mvp.view.MvpActivity;
 import com.example.demo.bauer.animation.AnimationMainActivity;
+import com.example.demo.bauer.encrypiton.EncryptionActivity;
 import com.example.demo.bauer.materialdesign.MaterialDesignMainActivity;
 import com.example.demo.constant.Constants;
 import com.example.demo.entity.DemoInfo;
@@ -67,6 +68,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         infoList.add(Constants.demoInfo12);
         infoList.add(Constants.demoInfo13);
         infoList.add(Constants.demoInfo14);
+        infoList.add(Constants.demoInfo15);
 
     }
 
@@ -121,15 +123,21 @@ public class MainActivity extends Activity implements OnItemClickListener {
             case 10:
                 intent.setClass(MainActivity.this, FfmpegMainActivity.class);
                 break;
+
             case 11:
                 intent.setClass(MainActivity.this, ListActivity.class);
                 break;
+
             case 12:
                 intent.setClass(MainActivity.this, OcrActivity.class);
                 break;
 
             case 13:
                 intent.setClass(MainActivity.this, MvpActivity.class);
+                break;
+
+            case 14:
+                intent.setClass(MainActivity.this, EncryptionActivity.class);
                 break;
         }
         startActivity(intent);

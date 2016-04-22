@@ -22,5 +22,6 @@ public class Constants {
     public static final DemoInfo demoInfo12 = new DemoInfo("12.通用适配器", "Milo", "2016/03/30");
     public static final DemoInfo demoInfo13 = new DemoInfo("13.文字识别与NDK入门介绍", "Talon", "2016/03/30");
     public static final DemoInfo demoInfo14 = new DemoInfo("14.设计模式", "bass", "2016/04/06");
+    public static final DemoInfo demoInfo15 = new DemoInfo("15.常用加解密", "Bauer", "2016/04/20");
 
 }

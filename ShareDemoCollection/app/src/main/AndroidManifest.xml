@@ -61,8 +61,6 @@
 
         <activity android:name=".bass.afinal.activity.FinalDBTest" />
 
-        <service android:name=".bass.breakpoint.DownloadService" />
-
         <activity android:name=".bass.designPattern.mvp.view.MvpActivity" />
 
         <service android:name=".bass.breakpoint.DownloadService" />
@@ -76,6 +74,8 @@
 
         <activity android:name=".milo.immersive.activity.TopBarActivity" />
 
+        <activity android:name=".milo.commonadapter.activity.ListActivity" />
+
         <activity
             android:name=".eric.ar.UnityPlayerStartActivity"
             android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"></activity>
@@ -83,6 +83,8 @@
         <activity android:name=".eric.ar.UnityPlayerActivity" />
 
         <activity android:name=".eric.eventbus.activity.EventMainActivity" />
+
+        <activity android:name=".eric.ffmpeg.activity.FfmpegMainActivity" />
 
 
         <activity
@@ -137,9 +139,7 @@
 
         <activity android:name=".bauer.materialdesign.FABActivity" />
 
-        <activity android:name=".eric.ffmpeg.activity.FfmpegMainActivity" />
-
-        <activity android:name=".milo.commonadapter.activity.ListActivity" />
+        <activity android:name=".bauer.encrypiton.EncryptionActivity"/>
 
         <uses-library
             android:name="com.ti.s3d"
