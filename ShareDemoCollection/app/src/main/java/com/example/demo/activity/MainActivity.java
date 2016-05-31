@@ -21,6 +21,7 @@ import com.example.demo.entity.DemoInfo;
 import com.example.demo.eric.ar.UnityPlayerStartActivity;
 import com.example.demo.eric.eventbus.activity.EventMainActivity;
 import com.example.demo.eric.ffmpeg.activity.FfmpegMainActivity;
+import com.example.demo.eric.unittest.activity.UnitTestMainActivity;
 import com.example.demo.milo.commonadapter.activity.ListActivity;
 import com.example.demo.milo.immersive.activity.ImmersedAndSwitch;
 import com.example.demo.bass.afinal.activity.FinalMainActivity;
@@ -69,7 +70,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         infoList.add(Constants.demoInfo13);
         infoList.add(Constants.demoInfo14);
         infoList.add(Constants.demoInfo15);
-
+        infoList.add(Constants.demoInfo16);
     }
 
     //item单击事件
@@ -138,6 +139,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
             case 14:
                 intent.setClass(MainActivity.this, EncryptionActivity.class);
+                break;
+            case 15:
+                intent.setClass(MainActivity.this, UnitTestMainActivity.class);
                 break;
         }
         startActivity(intent);
