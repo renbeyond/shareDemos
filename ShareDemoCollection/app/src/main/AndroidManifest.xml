@@ -143,6 +143,8 @@
 
         <activity android:name=".bauer.encrypiton.EncryptionActivity"/>
 
+        <activity android:name=".bauer.dialog.DialogTest"/>
+
         <uses-library
             android:name="com.ti.s3d"
             android:required="false" />

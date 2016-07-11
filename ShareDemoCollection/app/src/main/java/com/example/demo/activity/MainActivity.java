@@ -14,6 +14,7 @@ import com.example.demo.adapter.MyAdapter;
 import com.example.demo.bass.breakpoint.BreakpointDownloadActivity;
 import com.example.demo.bass.designPattern.mvp.view.MvpActivity;
 import com.example.demo.bauer.animation.AnimationMainActivity;
+import com.example.demo.bauer.dialog.DialogTest;
 import com.example.demo.bauer.encrypiton.EncryptionActivity;
 import com.example.demo.bauer.materialdesign.MaterialDesignMainActivity;
 import com.example.demo.constant.Constants;
@@ -71,6 +72,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         infoList.add(Constants.demoInfo14);
         infoList.add(Constants.demoInfo15);
         infoList.add(Constants.demoInfo16);
+        infoList.add(Constants.demoInfo17);
     }
 
     //item单击事件
@@ -138,10 +140,15 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 break;
 
             case 14:
+                intent.setClass(MainActivity.this, UnitTestMainActivity.class);
+                break;
+
+            case 15:
                 intent.setClass(MainActivity.this, EncryptionActivity.class);
                 break;
-            case 15:
-                intent.setClass(MainActivity.this, UnitTestMainActivity.class);
+
+            case 16:
+                intent.setClass(MainActivity.this, DialogTest.class);
                 break;
         }
         startActivity(intent);
