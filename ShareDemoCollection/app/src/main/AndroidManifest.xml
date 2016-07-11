@@ -88,6 +88,8 @@
 
         <activity android:name=".eric.ffmpeg.activity.FfmpegMainActivity" />
 
+        <activity android:name=".eric.unittest.activity.UnitTestMainActivity" />
+
 
         <activity
             android:name=".eric.ar.UnityPlayerNativeActivity"

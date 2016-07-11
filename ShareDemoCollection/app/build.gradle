@@ -52,4 +52,7 @@ dependencies {
     compile 'com.zhy:autolayout:1.4.3'
     compile files('libs/tess-two.tesseract3.01-leptonica1.68-LibJPEG6b.jar')
     compile files('libs/sqlcipher.jar')
+    androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.4.0'
+    compile 'com.jayway.android.robotium:robotium-solo:5.4.0'
+    compile 'junit:junit:4.12'
 }

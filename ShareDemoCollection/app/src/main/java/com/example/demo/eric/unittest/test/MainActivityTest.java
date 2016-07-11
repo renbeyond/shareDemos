@@ -2,6 +2,7 @@ package com.example.demo.eric.unittest.test;
 
 import android.test.ActivityInstrumentationTestCase2;
 
+import com.example.demo.eric.unittest.activity.UnitTestMainActivity;
 import com.robotium.solo.Solo;
 
 import junit.framework.Assert;
@@ -12,11 +13,11 @@ import org.junit.Test;
 /**
  * Created by Eric on 16/3/22.
  */
-public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActivity> {
+public class MainActivityTest extends ActivityInstrumentationTestCase2<UnitTestMainActivity> {
 
     private Solo solo;
     public MainActivityTest() {
-        super(MainActivity.class);
+        super(UnitTestMainActivity.class);
     }
 
     @Before
