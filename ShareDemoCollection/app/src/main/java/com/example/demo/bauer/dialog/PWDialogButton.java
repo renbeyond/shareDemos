@@ -1,4 +1,4 @@
-package com.example.demo.bauer;
+package com.example.demo.bauer.dialog;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
@@ -29,7 +29,7 @@ public class PWDialogButton extends FrameLayout {
         super(context, attrs);
         setWillNotDraw(false);
         this.context = context;
-        View.inflate(getContext(), R.layout.group_button, this);
+        View.inflate(getContext(), R.layout.bauer_group_button, this);
         btnNegative = (TextView) findViewById(R.id.btn_negative);
         btnNegative.setOnClickListener(new View.OnClickListener() {
             @Override

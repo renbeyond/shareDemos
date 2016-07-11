@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.demo.R;
-import com.example.demo.bauer.PWDialog;
 
 /**
  * Created by bauer_bao on 16/7/11.
@@ -78,7 +77,7 @@ public class DialogTest extends AppCompatActivity implements View.OnClickListene
                     pwDialog3 = new PWDialog(DialogTest.this, 103)
                             .setPWDialogTitle("customser dialog")
                             .setPWDialogTitleColor(R.color.color_0)
-                            .setPWDialogContentView(R.layout.dialog_edittext, this)
+                            .setPWDialogContentView(R.layout.bauer_dialog_edittext, this)
                             .setPWDialogPositiveButton("重置输入框，修改title，并且显示取消按钮")
                             .setOnPWDialogClickListener(this)
                             .pwDialogCreate();

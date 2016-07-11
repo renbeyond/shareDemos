@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/bg_dialog_blue_top"
+            android:background="@drawable/bauer_bg_dialog_blue_top"
             android:gravity="center_vertical"
             android:paddingBottom="10dp"
             android:paddingLeft="16dp"
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/dia_title"
-            android:background="@drawable/bg_dialog_white_content_gender">
+            android:background="@drawable/bauer_bg_dialog_white_content_gender">
 
             <FrameLayout
                 android:id="@+id/content_view"
@@ -59,12 +59,12 @@
             android:layout_below="@id/dia"
             android:background="@color/color_0" />
 
-        <com.example.demo.bauer.PWDialogButton
+        <com.example.demo.bauer.dialog.PWDialogButton
             android:id="@+id/btn_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/middle_horizontal_line"
-            android:background="@drawable/bg_dialog_gray_ok2" />
+            android:background="@drawable/bauer_bg_dialog_gray_ok2" />
     </RelativeLayout>
 
 </RelativeLayout>

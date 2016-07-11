@@ -1,4 +1,4 @@
-package com.example.demo.bauer;
+package com.example.demo.bauer.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -318,7 +318,7 @@ public class PWDialog extends Dialog {
      * 创建dialog
      */
     public PWDialog pwDialogCreate() {
-        View view = View.inflate(mContext, R.layout.layout_custom_dialog, null);
+        View view = View.inflate(mContext, R.layout.bauer_layout_custom_dialog, null);
         titleTV = (TextView) view.findViewById(R.id.dia_title);
         contentRL = (RelativeLayout) view.findViewById(R.id.dia);
         messageTV = (TextView) view.findViewById(R.id.tv_message);
@@ -367,7 +367,7 @@ public class PWDialog extends Dialog {
         if (TextUtils.isEmpty(titleStr)) {
             System.out.println("title  null");
             titleTV.setVisibility(View.GONE);
-            contentRL.setBackgroundResource(R.drawable.bg_dialog_white_content_gender);
+            contentRL.setBackgroundResource(R.drawable.bauer_bg_dialog_white_content_gender);
         } else {
             System.out.println("title not null");
             titleTV.setVisibility(View.VISIBLE);
