@@ -120,8 +120,13 @@ public class PWDialog extends Dialog {
     private OnDialogButtonListener dialogButtonListener;
     private OnCustomerViewCallBack customerViewCallBack;
 
+    /**
+     * 构造方法
+     * @param context
+     */
     public PWDialog(Context context) {
-        super(context);
+        super(context, R.style.Dialog);
+        mContext = context;
     }
 
     public PWDialog(Context context, int dialogId, int theme) {
@@ -137,6 +142,16 @@ public class PWDialog extends Dialog {
         super(context, R.style.Dialog);
         this.dialogId = dialogId;
         mContext = context;
+    }
+
+    /**
+     * 设置dialogId
+     * @param dialogId
+     * @return
+     */
+    public PWDialog setPWDialogId(int dialogId) {
+        this.dialogId = dialogId;
+        return this;
     }
 
     /**
@@ -215,7 +230,7 @@ public class PWDialog extends Dialog {
      * @param gravity
      * @return
      */
-    public PWDialog setPWDialogContentGravity(boolean gravity) {
+    public PWDialog setPWDialogContentCenter(boolean gravity) {
         textCenter = gravity;
         return this;
     }
@@ -352,9 +367,7 @@ public class PWDialog extends Dialog {
      */
     public void pwDilogShow(){
         checkContent();
-            System.out.println("need show dialog------>" + isShowing());
         if (!isShowing()) {
-            System.out.println("need show dialog");
             show();
         }
     }
@@ -365,11 +378,9 @@ public class PWDialog extends Dialog {
     private void checkContent(){
         //检查title
         if (TextUtils.isEmpty(titleStr)) {
-            System.out.println("title  null");
             titleTV.setVisibility(View.GONE);
             contentRL.setBackgroundResource(R.drawable.bauer_bg_dialog_white_content_gender);
         } else {
-            System.out.println("title not null");
             titleTV.setVisibility(View.VISIBLE);
             titleTV.setText(titleStr);
             if (titleColorId != 0) {
@@ -380,7 +391,6 @@ public class PWDialog extends Dialog {
 
         //检查内容
         if (contentView != null) {//检查自定义布局
-            System.out.println("contentView not null");
 
             if (!customerInited) {//没有初始化，则需要初始化
                 customerInited = true;
@@ -390,7 +400,6 @@ public class PWDialog extends Dialog {
             }
 
         } else {//检查message
-            System.out.println("contentView null" + messageStr);
             if (!TextUtils.isEmpty(messageStr)) {
                 messageTV.setText(messageStr);
                 messageTV.setGravity(textCenter ? Gravity.CENTER : Gravity.START | Gravity.CENTER_VERTICAL);
@@ -417,25 +426,12 @@ public class PWDialog extends Dialog {
         @Override
         public void onClick(DialogInterface dialog, int which) {
             dismiss();
-            switch (which) {
-                case DialogInterface.BUTTON_POSITIVE://确定按钮
-                    onPWDialogClickListener.onPositiveDialogButtonClicked(dialogId);
-                    break;
-
-                case DialogInterface.BUTTON_NEGATIVE://取消按钮
-                    onPWDialogClickListener.onNegativeDialogButtonClicked(dialogId);
-                    break;
-
-                default:
-                    break;
-            }
+            onPWDialogClickListener.onPWDialogButtonClicked(which, dialogId);
         }
     }
 
     public interface OnPWDialogClickListener {
-        void onNegativeDialogButtonClicked(int dialogId);
-
-        void onPositiveDialogButtonClicked(int dialogId);
+        void onPWDialogButtonClicked(int which, int dialogId);
     }
 
     public interface OnCustomerViewCallBack {

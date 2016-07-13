@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.demo.R;
 
+
 /**
  * 自定义对话框的确认按钮和取消按钮封装类
  *
@@ -27,11 +28,10 @@ public class PWDialogButton extends FrameLayout {
 
     public PWDialogButton(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setWillNotDraw(false);
         this.context = context;
         View.inflate(getContext(), R.layout.bauer_group_button, this);
         btnNegative = (TextView) findViewById(R.id.btn_negative);
-        btnNegative.setOnClickListener(new View.OnClickListener() {
+        btnNegative.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 if (onPWDialogButtonClickCallBack != null) {
@@ -41,7 +41,7 @@ public class PWDialogButton extends FrameLayout {
         });
 
         btnPositive = (TextView) findViewById(R.id.btn_positive);
-        btnPositive.setOnClickListener(new View.OnClickListener() {
+        btnPositive.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 if (onPWDialogButtonClickCallBack != null) {
@@ -55,6 +55,7 @@ public class PWDialogButton extends FrameLayout {
 
     /**
      * 设置监听
+     *
      * @param onPWDialogButtonClickCallBack
      */
     public void setOnClickListener(OnPWDialogButtonClickCallBack onPWDialogButtonClickCallBack) {
@@ -70,7 +71,6 @@ public class PWDialogButton extends FrameLayout {
     public void setButtonText(String positive, String negative) {
         if (positive == null && negative == null) {
             setVisibility(View.GONE);
-            invalidate();
             return;
         }
 
@@ -94,7 +94,6 @@ public class PWDialogButton extends FrameLayout {
             btnPositive.setVisibility(View.VISIBLE);
             btnPositive.setText(positive);
         }
-        invalidate();
     }
 
     /**
@@ -113,7 +112,6 @@ public class PWDialogButton extends FrameLayout {
         if (positiveColorId != 0 && btnPositive.isShown()) {
             btnPositive.setTextColor(ContextCompat.getColor(context, positiveColorId));
         }
-        invalidate();
     }
 
     /**
