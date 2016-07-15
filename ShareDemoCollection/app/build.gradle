@@ -55,4 +55,8 @@ dependencies {
     androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.4.0'
     compile 'com.jayway.android.robotium:robotium-solo:5.4.0'
     compile 'junit:junit:4.12'
+    compile files('libs/gson-2.7.jar')
+    compile files('libs/okhttp-3.3.1.jar')
+    compile files('libs/okio-1.8.0.jar')
+    compile files('libs/retrofit-2.1.0.jar')
 }

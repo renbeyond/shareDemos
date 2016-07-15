@@ -26,6 +26,7 @@ import com.example.demo.eric.unittest.activity.UnitTestMainActivity;
 import com.example.demo.milo.commonadapter.activity.ListActivity;
 import com.example.demo.milo.immersive.activity.ImmersedAndSwitch;
 import com.example.demo.bass.afinal.activity.FinalMainActivity;
+import com.example.demo.peng.activity.SplashActivity;
 import com.example.demo.talon.camera.CameraMainActivity;
 import com.example.demo.talon.image.PlaceActivity;
 import com.example.demo.talon.ocr.OcrActivity;
@@ -73,6 +74,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         infoList.add(Constants.demoInfo15);
         infoList.add(Constants.demoInfo16);
         infoList.add(Constants.demoInfo17);
+        infoList.add(Constants.demoInfo18);
     }
 
     //item单击事件
@@ -149,6 +151,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
             case 16:
                 intent.setClass(MainActivity.this, DialogTest.class);
+                break;
+            case 17:
+                intent.setClass(MainActivity.this, SplashActivity.class);
                 break;
         }
         startActivity(intent);
