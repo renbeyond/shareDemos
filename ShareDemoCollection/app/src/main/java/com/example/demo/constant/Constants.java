@@ -26,5 +26,5 @@ public class Constants {
     public static final DemoInfo demoInfo16 = new DemoInfo("16.常用加解密", "Bauer", "2016/05/04");
     public static final DemoInfo demoInfo17 = new DemoInfo("17.Dialog", "Bauer", "2016/07/11");
     public static final DemoInfo demoInfo18 = new DemoInfo("1.Retrofit OKhtt[", "Peng", "2016/07/15");
-
+    public static final DemoInfo demoInfo19 = new DemoInfo("19.VectorDrawable动画","Beyond","2016/09/07");
 }
