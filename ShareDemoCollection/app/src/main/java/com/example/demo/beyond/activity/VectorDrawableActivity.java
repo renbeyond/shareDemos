@@ -33,7 +33,11 @@ public class VectorDrawableActivity extends AppCompatActivity implements View.On
         Drawable drawable = ((ImageView)v).getDrawable();
         //其实是AnimatedVectorDrawable实现了Animatable2(继承自Animatable)接口
         if (drawable instanceof Animatable){
-            ((Animatable) drawable).start();//启动动画
+            if(!((Animatable) drawable).isRunning()) {
+                ((Animatable) drawable).start();//启动动画
+            }else {
+                ((Animatable) drawable).stop();//停止动画
+            }
         }
     }
 }

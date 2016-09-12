@@ -111,6 +111,7 @@
         <activity android:name=".peng.activity.SplashActivity" />
         <activity android:name=".peng.activity.LoginActivity" />
         <activity android:name=".peng.activity.DetailActivity" />
+        <activity android:name=".beyond.activity.VectorDrawableActivity"></activity>
 
         <uses-library
             android:name="com.ti.s3d"
@@ -128,9 +129,6 @@
             android:name="design_height"
             android:value="1920" />
         <!-- AutoLayout 设计尺寸 end -->
-        <!--Beyond start-->
-        <activity android:name=".beyond.activity.VectorDrawableActivity"></activity>
-        <!--Beyond end-->
     </application>
 
 </manifest>

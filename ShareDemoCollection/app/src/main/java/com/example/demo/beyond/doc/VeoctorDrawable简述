@@ -1,0 +1,73 @@
+VectorDrawable
+1.VectorDrawable
+    矢量图在很久很久以前就已经应用起来了，是一种基于xml的图像，
+    因为图片不提供具体的像素，只提供的是绘图的指令，所以好处是 占用内存非常小，性能高，可以任意缩放而不会失真，
+    但是缺点也很明显，没有位图表达的色彩丰富。
+
+2.低版本兼容问题
+    //在gradle2.0及以上：
+    android {
+      defaultConfig {
+      vectorDrawables.useSupportLibrary = true
+    }}
+    //在gradle 1.5以前
+    android {
+      defaultConfig {
+        // Stops the Gradle plugin’s automatic rasterization of vectors
+        generatedDensities = []
+      }
+      // Flag to tell aapt to keep the attribute ids around
+      aaptOptions {
+        additionalParameters "--no-version-vectors"
+      }
+    }
+    除此之外:
+    最重要的还有添加appcompat的支持：
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    如果需要在TextView的drawabletop等上边使用，还需要在对应的Activity中加入这个代码：
+    static {
+        AppCompatDelegate.setCompatVectorFromSourcesEnabled(true);
+    }
+
+3.SVG指令
+    使用SVG指令绘制矢量图的路径,在<path ...../>标签中进行绘制
+        M = moveto(M X,Y) ：将画笔移动到指定的坐标位置
+        L = lineto(L X,Y) ：画直线到指定的坐标位置
+        H = horizontal lineto(H X)：画水平线到指定的X坐标位置
+        V = vertical lineto(V Y)：画垂直线到指定的Y坐标位置
+        C = curveto(C X1,Y1,X2,Y2,ENDX,ENDY)：三次贝赛曲线
+        S = smooth curveto(S X2,Y2,ENDX,ENDY)
+        Q = quadratic Belzier curve(Q X,Y,ENDX,ENDY)：二次贝赛曲线
+        T = smooth quadratic Belzier curveto(T ENDX,ENDY)：映射
+        A = elliptical Arc(A RX,RY,XROTATION,FLAG1,FLAG2,X,Y)：弧线
+        Z = closepath()：关闭路径
+
+    使用原则:
+        坐标轴为以(0,0)为中心，X轴水平向右，Y轴水平向下
+        所有指令大小写均可。大写绝对定位，参照全局坐标系；小写相对定位，参照父容器坐标系
+        指令和数据间的空格可以省略
+        同一指令出现多次可以只用一个
+
+    注意，’M’处理时，只是移动了画笔， 没有画任何东西。 它也可以在后面给出上同时绘制不连续线。
+
+4.工具
+    1.http://inloop.github.io/svg2android/就是一个非常牛逼的网站，可以在线将SVG图像转换为Android Vector Drawable
+    2.AS自带的Vector Asset
+
+5.注意点
+    (1).animated-vector标签在现在的Android Studio中实际上是会报错的，但这个并不影响编译和运行，属于Android Studio的Bug。
+    (2).如果在TextView的drawabletop等上使用,或者是在选择器selector中使用要加入如下静态代码块
+        static {
+            AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+        }
+    (3).对Path进行分组，由于我们后面需要针对Path进行动画，所以可以让具有同样动画效果的Path在同一个Group中拓展动画效果，
+        单个的path标签是没有translateX和translateY属性的，
+        因此无法使用属性动画来控制path translateY，而group标签是有的，所以我们需要先将相关的path标签元素包裹在一个个的group标签中.
+    (4).Vector的性能问题
+        Bitmap的绘制效率并不一定会比Vector高，它们有一定的平衡点，当Vector比较简单时，其效率是一定比Bitmap高的，
+        所以，为了保证Vector的高效率，Vector需要更加简单，PathData更加标准、精简，当Vector图像变得非常复杂时，就需要使用Bitmap来代替了
+        Vector适用于ICON、Button、ImageView的图标等小的ICON，或者是需要的动画效果，由于Bitmap在GPU中有缓存功能，而Vector并没有，
+        所以Vector图像不能做频繁的重绘
+        Vector图像过于复杂时，不仅仅要注意绘制效率，初始化效率也是需要考虑的重要因素
+        SVG加载速度会快于PNG，但渲染速度会慢于PNG，毕竟PNG有硬件加速，但平均下来，加载速度的提升弥补了绘制的速度缺陷。
+        Google的这个视频中，已经对Vector的效率问题做了解释，可以参考下：
