@@ -5,13 +5,21 @@
     android:viewportWidth="500"
     android:viewportHeight="500">
 
+    <path android:name="square_path"
+        android:strokeColor="@color/half_black"
+        android:strokeWidth="8"
+        android:pathData="M4,250 A246,246,0,1,1,496,250 A246,246,0,1,1,4,250 "/>
+
     <group android:name="square"
         android:pivotX="250"
         android:pivotY="250"
-        android:rotation="90">
+        android:rotation="30">
     <path
-        android:fillColor="#b6c"
-        android:pathData="M225,0 L325,0 L325,50 L225,50Z"/>
+        android:strokeColor="#0f0"
+        android:strokeWidth="10"
+        android:pathData="M5,250 L5,220"/>
     </group>
+
+
 
 </vector>
