@@ -15,7 +15,7 @@ import com.example.demo.milo.commonadapter.entity.Mode;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -29,7 +29,7 @@ public class ListActivity extends Activity {
     private CommonAdapter commonAdapter;
 
 
-    @Bind(R.id.list_view)
+    @BindView(R.id.list_view)
     ListView listView;
 
     @Override

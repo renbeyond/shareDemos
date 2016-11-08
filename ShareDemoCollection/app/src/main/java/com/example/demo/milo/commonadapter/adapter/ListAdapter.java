@@ -14,7 +14,7 @@ import com.example.demo.milo.commonadapter.entity.Mode;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -106,11 +106,11 @@ public class ListAdapter extends BaseAdapter {
      * @author ButterKnifeZelezny, plugin for Android Studio by Avast Developers (http://github.com/avast)
      */
     static class ViewHolder {
-        @Bind(R.id.no_tv)
+        @BindView(R.id.no_tv)
         TextView noTv;
-        @Bind(R.id.content_tv)
+        @BindView(R.id.content_tv)
         TextView contentTv;
-        @Bind(R.id.submit_btn)
+        @BindView(R.id.submit_btn)
         Button submitBtn;
 
         ViewHolder(View view) {

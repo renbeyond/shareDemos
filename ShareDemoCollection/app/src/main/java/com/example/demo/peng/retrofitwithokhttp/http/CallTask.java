@@ -33,7 +33,9 @@ public class CallTask<T>{
 
     private static void getAPISuccess(Response response, HttpCallback httpCallback){
         if (response.isSuccessful() && response.errorBody() == null) {
+            Log.d("tag", "getAPISuccess --->" + response.body().toString());
             int status = response.code();
+            Log.d("tag", "getAPISuccess status --->" + status);
             if (response.code() == 200) {
                 httpCallback.onSuccess(response.body());
             } else {

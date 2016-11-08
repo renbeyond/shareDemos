@@ -7,14 +7,14 @@ import android.widget.TextView;
 
 import com.example.demo.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
  * Created by milo on 15/9/7.
  */
 public class TestActivity extends Activity {
-    @Bind(R.id.back_btn)
+    @BindView(R.id.back_btn)
     TextView backBtn;
 
     @Override

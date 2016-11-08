@@ -25,6 +25,7 @@ public class Constants {
     public static final DemoInfo demoInfo15 = new DemoInfo("15.单元测试", "Eric", "2016/04/27");
     public static final DemoInfo demoInfo16 = new DemoInfo("16.常用加解密", "Bauer", "2016/05/04");
     public static final DemoInfo demoInfo17 = new DemoInfo("17.Dialog", "Bauer", "2016/07/11");
-    public static final DemoInfo demoInfo18 = new DemoInfo("1.Retrofit OKhtt[", "Peng", "2016/07/15");
+    public static final DemoInfo demoInfo18 = new DemoInfo("18.Retrofit OKhttp", "Peng", "2016/07/15");
     public static final DemoInfo demoInfo19 = new DemoInfo("19.VectorDrawable动画","Beyond","2016/09/07");
+    public static final DemoInfo demoInfo20 = new DemoInfo("21.RxJava","Bauer","2016/10/31");
 }

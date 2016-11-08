@@ -32,6 +32,8 @@ public class LoginActivity extends Activity implements View.OnClickListener{
     EditText editPass;
     Button submit;
 
+    String account = "ye@163.com";
+    String pwd = "111111";
 
     final MyHandler myHandler = new MyHandler(LoginActivity.this);
 
@@ -85,6 +87,9 @@ public class LoginActivity extends Activity implements View.OnClickListener{
         editPass = (EditText) findViewById(R.id.password);
         submit = (Button) findViewById(R.id.submit);
         submit.setOnClickListener(this);
+
+        editName.setText(account);
+        editPass.setText(pwd);
     }
 
 

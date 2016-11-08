@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.example.demo.R;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
  */
 public class TransparentTopBar extends Activity {
 
-    @Bind(R.id.back_btn)
+    @BindView(R.id.back_btn)
     TextView backBtn;
 
     @Override

@@ -1,0 +1,73 @@
+参考网址： https://github.com/cn-ljb/rxjava_for_android
+
+Observable 被观察者
+Subscriber 订阅者（观察者） 和 Observe一样
+Observable.subscribe(Subscriber) 把 被观察者 和 订阅者 进行关联，类似于set方法
+
+Subscription 持有Observable.subscribe(Subscriber)的引用
+Subscription.unsubscribe() 可以取消订阅
+
+
+Observable.create() 最原始的创建被观察者的方法
+Observable.just() create的升级版，快速create，可以传多个参数， 将传入的参数依次发送出来。
+Observable.from() 等于遍历循环  将传入的数组或 Iterable 拆分成具体对象后，依次发送出来。
+
+
+Subscriber  订阅者处理被观察者传递过来的方法
+            onStart() 开始的时候，不涉及UI，比如参数的初始化
+            onNext() 有下一个任务执行的时候
+            onCompleted() 当没有onNext的时候，并且没有出错的时候，表示执行完成
+            onError() 当处理onNext中一旦出现错误，就会执行 onError，和 onCompleted 互斥
+
+
+doOnSubscribe 和onStart()有区别，在主线程中执行请求的准备工作，比如弹出进度条
+doOnUnsubscribe 在取消订阅之后会执行的方法
+
+
+Action0 无参无返回值的处理事件，一般可以用于OnCompleted包装对象
+Action1 有1个参数无返回值的处理时间，一般用于onError和onNext的包装对象
+Action2 有2个参数无返回值
+ActionX 类似Action0 和 Action1
+
+map 可以对数据进行变化，但是不会对Observable变化
+flatMap 对数据变化，但是会返回新的Observable对象
+
+Func1 变换的方法，可以执行多次变换，真正变换的部分
+FuncX 和 ActionX 的区别在 FuncX 包装的是有返回值的方法
+Func 基本和 map flatMap一起出现
+
+filter 过滤条件
+distinct 去掉重复
+take  指定输出的数量
+doOnNext  输出前做的处理
+
+subscribeOn(Schedulers.io()) 指定观察者代码运行的线程
+observeOn(AndroidSchedulers.mainThread()) 指定订阅者运行的线程
+
+addCallAdapterFactory(RxJavaCallAdapterFactory.create())  retrofit + rxjava 主要的代码
+
+
+zip 将多个被观察者对象结合到一起，并统一传递给订阅者
+merge 将多个被观察者对象的输出合并
+区分：zip，会把多个被观察者返回的数据进行了处理，然后统一给订阅者
+    merge，同时请求，不保证顺序，返回的结果，也依次返回给订阅者
+    flatmap，嵌套请求
+
+timer  定时操作，x秒后执行y操作，相当于delay
+interval   周期性定时操作，每隔xx秒后执行yy操作，相当于定时器timer
+
+其他：
+buffer(count , skip) 每接收到count个数据后，将该count的个数据打包，并跳过第skip个数据，发送给订阅者
+concat  &  first  将依次检查多个条件，只要满足一个，就结束。比如，先检查缓存，在检查本地，在检查网络，满足一个，结束
+Count   统计源Observable发射了多少个数据，最后将数目给发射出来；如果源Observable发射错误，则会将错误直接报出来；在源Observable没有终止前，count是不会发射统计数据的。
+reduce  多次操作之后，只获取最后一个值
+scan    多次操作之后，每次操作的结果都会获取
+collect  多次操作之后，每次操作的结果都会保存到list中
+compose  一般和RxLifeCycle共同使用，防止内存泄露
+
+RxLifeCycle
+避免未完成的订阅会引起内存泄漏
+1.compile 'com.trello:rxlifecycle-components:0.8.0'
+2.继承RxActivity, RxAppCompatActivity, RxFragment 等等
+3.compose(this.<T>bindToLifeCycle())  默认的声明周期管理来管理，在RxActivity中，如果在onStart中订阅，则在onStop中序列被停止发射,并且取消订阅
+4.compose(this.<T>bindUntilEvent(ActivityEvent.PAUSE))  指定的生命周期停止发射,并且取消订阅

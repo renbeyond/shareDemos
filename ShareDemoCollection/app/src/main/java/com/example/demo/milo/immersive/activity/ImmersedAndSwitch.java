@@ -8,18 +8,18 @@ import android.widget.Button;
 
 import com.example.demo.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
  * Created by milo on 16/2/25.
  */
 public class ImmersedAndSwitch extends Activity {
-    @Bind(R.id.btn_1)
+    @BindView(R.id.btn_1)
     Button btn1;
-    @Bind(R.id.btn_2)
+    @BindView(R.id.btn_2)
     Button btn2;
-    @Bind(R.id.btn_3)
+    @BindView(R.id.btn_3)
     Button btn3;
 
     private String one;

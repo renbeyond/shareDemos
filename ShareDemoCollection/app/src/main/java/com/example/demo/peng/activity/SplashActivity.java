@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 
 import com.example.demo.R;
 import com.example.demo.peng.retrofitwithokhttp.http.Common;
@@ -47,6 +48,7 @@ public class SplashActivity extends Activity {
     private void dealHandler(Message msg){
         switch (msg.what) {
             case HttpUtils.GET_TOKEN_MSG:
+                Log.d("tag", "get tokenid success");
                 Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
                 startActivity(intent);
                 finish();

@@ -40,6 +40,7 @@ public class HttpUtils {
         task.handleResponse(new HttpCallback<BasicResult<TokenId>>() {
             @Override
             public void onSuccess(BasicResult<TokenId> result) {
+                Log.d("tag", "result---->" + result.getResult().getTokenId());
                 SharedPreferences sp = context.getSharedPreferences(Common.SHARED_PREFERENCE_USERINFO_NAME, Context.MODE_PRIVATE);
                 SharedPreferences.Editor e = sp.edit();
                 e.putString(Common.USERINFO_TOKENID, AESKeyHelper.encryptString(result.getResult().getTokenId(), PWJniUtil.getAESKey(Common.APP_TYPE_SHDRPP)));

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/rxjava_btn1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="标准方法Create" />
+
+    <Button
+        android:id="@+id/rxjava_btn2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="just + action1" />
+
+    <Button
+        android:id="@+id/rxjava_btn3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="map" />
+
+    <Button
+        android:id="@+id/rxjava_btn4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="from" />
+
+    <Button
+        android:id="@+id/rxjava_btn5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="flatmap + filter + take + doonnext" />
+
+    <Button
+        android:id="@+id/rxjava_btn6"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="常用标准方法" />
+
+    <Button
+        android:id="@+id/rxjava_btn7"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="线程切换" />
+
+    <Button
+        android:id="@+id/rxjava_btn8"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="有UI操作的常用方法" />
+
+    <Button
+        android:id="@+id/rxjava_btn9"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="zip" />
+
+    <Button
+        android:id="@+id/rxjava_btn10"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="merge" />
+
+    <Button
+        android:id="@+id/rxjava_btn11"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="timer + Interval" />
+
+    <Button
+        android:id="@+id/rxjava_btn12"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="rxLifecycle" />
+
+</LinearLayout>
