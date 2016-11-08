@@ -32,6 +32,7 @@ import com.example.demo.peng.activity.SplashActivity;
 import com.example.demo.talon.camera.CameraMainActivity;
 import com.example.demo.talon.image.PlaceActivity;
 import com.example.demo.talon.ocr.OcrActivity;
+import com.squareup.leakcanary.LeakCanary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +54,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         myAdapter = new MyAdapter(this, infoList);
         lvInfo.setAdapter(myAdapter);
         lvInfo.setOnItemClickListener(this);
+        LeakCanary.install(getApplication());
 
     }
 
@@ -79,6 +81,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         infoList.add(Constants.demoInfo18);
         infoList.add(Constants.demoInfo19);
         infoList.add(Constants.demoInfo20);
+        infoList.add(Constants.demoInfo22);
     }
 
     //item单击事件
@@ -164,9 +167,15 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 break;
 
             case 19:
+                break;
+
+            case 20:
                 intent.setClass(MainActivity.this, RxjavaAndRetrofitActivity.class);
                 break;
         }
+
+        if (position != 19) {
         startActivity(intent);
+        }
     }
 }
