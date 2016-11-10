@@ -30,5 +30,5 @@ public class Constants {
     public static final DemoInfo demoInfo20 = new DemoInfo("20.LeakCanary","Beyond","2016/11/04");
 
 
-    public static final DemoInfo demoInfo22 = new DemoInfo("22.RxJava","Bauer","2016/10/31");
+    public static final DemoInfo demoInfo22 = new DemoInfo("22.RxJava","Bauer","2016/11/10");
 }

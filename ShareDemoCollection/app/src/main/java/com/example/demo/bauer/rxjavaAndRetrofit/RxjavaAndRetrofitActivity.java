@@ -396,7 +396,7 @@ public class RxjavaAndRetrofitActivity extends RxAppCompatActivity {
         String[] urls = new String[]{"bauer", "milo", "peng", "beyond"};
         Log.d("start", "start rxjava");
         Subscription subscription = Observable.from(urls)//等于遍历循环
-                .subscribeOn(Schedulers.io())//使用subscribeOn()指定观察者代码运行的线程
+                .subscribeOn(Schedulers.io())//使用subscribeOn()指定被观察者代码运行的线程
                 .flatMap(new Func1<String, Observable<String>>() {//转换了一次，重新生成了一个Observable被观察者。
                     @Override
                     public Observable<String> call(String s) {
