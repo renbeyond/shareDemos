@@ -29,6 +29,7 @@ import com.example.demo.milo.commonadapter.activity.ListActivity;
 import com.example.demo.milo.immersive.activity.ImmersedAndSwitch;
 import com.example.demo.bass.afinal.activity.FinalMainActivity;
 import com.example.demo.peng.activity.SplashActivity;
+import com.example.demo.peng.function.androidseven.activity.AndroidSevenActivity;
 import com.example.demo.talon.camera.CameraMainActivity;
 import com.example.demo.talon.image.PlaceActivity;
 import com.example.demo.talon.ocr.OcrActivity;
@@ -81,6 +82,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         infoList.add(Constants.demoInfo18);
         infoList.add(Constants.demoInfo19);
         infoList.add(Constants.demoInfo20);
+        infoList.add(Constants.demoInfo21);
         infoList.add(Constants.demoInfo22);
     }
 
@@ -167,9 +169,14 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 break;
 
             case 19:
+
                 break;
 
             case 20:
+                intent.setClass(MainActivity.this, AndroidSevenActivity.class);
+                break;
+
+            case 21:
                 intent.setClass(MainActivity.this, RxjavaAndRetrofitActivity.class);
                 break;
         }
