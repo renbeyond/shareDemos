@@ -17,6 +17,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
 
     <uses-feature android:glEsVersion="0x00020000" />
     <uses-feature
@@ -115,6 +116,7 @@
         <activity android:name=".peng.activity.LoginActivity" />
         <activity android:name=".peng.activity.DetailActivity" />
         <activity android:name=".beyond.activity.VectorDrawableActivity" />
+        <activity android:name=".peng.function.fingerdetect.activity.FingerDetectorActivity"/>
 
         <uses-library
             android:name="com.ti.s3d"

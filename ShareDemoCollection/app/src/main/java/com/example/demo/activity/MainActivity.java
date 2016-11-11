@@ -30,6 +30,7 @@ import com.example.demo.milo.immersive.activity.ImmersedAndSwitch;
 import com.example.demo.bass.afinal.activity.FinalMainActivity;
 import com.example.demo.peng.activity.SplashActivity;
 import com.example.demo.peng.function.androidseven.activity.AndroidSevenActivity;
+import com.example.demo.peng.function.fingerdetect.activity.FingerDetectorActivity;
 import com.example.demo.talon.camera.CameraMainActivity;
 import com.example.demo.talon.image.PlaceActivity;
 import com.example.demo.talon.ocr.OcrActivity;
@@ -84,6 +85,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
         infoList.add(Constants.demoInfo20);
         infoList.add(Constants.demoInfo21);
         infoList.add(Constants.demoInfo22);
+        infoList.add(Constants.demoInfo23);
     }
 
     //item单击事件
@@ -178,6 +180,10 @@ public class MainActivity extends Activity implements OnItemClickListener {
 
             case 21:
                 intent.setClass(MainActivity.this, RxjavaAndRetrofitActivity.class);
+                break;
+
+            case 22:
+                intent.setClass(MainActivity.this, FingerDetectorActivity.class);
                 break;
         }
 
