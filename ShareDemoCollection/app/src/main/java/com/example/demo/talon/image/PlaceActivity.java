@@ -2,7 +2,6 @@ package com.example.demo.talon.image;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -15,6 +14,12 @@ import android.widget.ImageView;
 import com.example.demo.R;
 import com.example.demo.filter.FilmFilter;
 import com.example.demo.util.BitmapUtils;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class PlaceActivity extends Activity implements View.OnClickListener{
@@ -38,8 +43,7 @@ public class PlaceActivity extends Activity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnOpen:
-                Intent getAlbum = new Intent(Intent.ACTION_GET_CONTENT);
-                getAlbum.setType("image/*");
+                Intent getAlbum = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(getAlbum, PHOTO_REQUEST_GALLERY);
                 break;
             case R.id.btnDeal:
@@ -65,31 +69,25 @@ public class PlaceActivity extends Activity implements View.OnClickListener{
                 }
                 break;
             case PHOTO_REQUEST_CUT:// 返回的结果
-                if (data != null){
-                    try {
-                        Uri selectedImage = data.getData(); //获取系统返回的照片的Uri
-                        String[] filePathColumn = { MediaStore.Images.Media.DATA };
-                        Cursor cursor =getContentResolver().query(selectedImage,
-                                filePathColumn, null, null, null);//从系统表中查询指定Uri对应的照片
-                        cursor.moveToFirst();
-                        int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                        String picturePath = cursor.getString(columnIndex);  //获取照片路径
-                        cursor.close();
-                        Bitmap bitmap= BitmapFactory.decodeFile(picturePath);
-                        dealData(bitmap);
-                    } catch (Exception e) {
-                        // TODO Auto-generatedcatch block
-                        e.printStackTrace();
+                try {
+                    if (cropUri != null){
+                        Bitmap bitmap = BitmapFactory.decodeStream(
+                                getContentResolver().openInputStream(cropUri));
+                        if (bitmap != null) {
+                            dealData(bitmap);
+                        }
+                    }else {
+                        return;
                     }
-                }else {
-                return;
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
                 }
                 break;
         }
         super.onActivityResult(requestCode, resultCode, data);
 
-}
-
+    }
+    Uri cropUri;
     /**
      * 裁减图片
      * @param uri
@@ -111,6 +109,12 @@ public class PlaceActivity extends Activity implements View.OnClickListener{
         intent.putExtra("scaleUpIfNeeded", true);// 如果小于要求输出大小，就放大
         intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
         intent.putExtra("noFaceDetection", true);// 关闭人脸识别
+        String cropImageName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.getDefault()).format(new Date()) +
+                "-1-" + System.currentTimeMillis() + ".jpg";
+        File cropFile = new File(getExternalCacheDir(), cropImageName);
+        //注意到此处使用的file:// uri类型.
+        cropUri = Uri.fromFile(cropFile);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, cropUri);
         startActivityForResult(intent, PHOTO_REQUEST_CUT);
     }
 

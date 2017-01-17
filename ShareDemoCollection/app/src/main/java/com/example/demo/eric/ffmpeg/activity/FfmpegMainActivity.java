@@ -1,30 +1,19 @@
 package com.example.demo.eric.ffmpeg.activity;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
-import android.media.MediaMetadataRetriever;
 import android.media.ThumbnailUtils;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.GridView;
 
 import com.example.demo.R;
-import com.example.demo.bass.afinal.activity.FinalMainActivity;
 import com.example.demo.eric.ffmpeg.adapter.FfmpegAdapter;
 import com.example.demo.eric.ffmpeg.util.ACache;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.HashMap;
+import com.example.demo.util.PictureAirLog;
 
 import wseemann.media.FFmpegMediaMetadataRetriever;
 
@@ -39,15 +28,7 @@ public class FfmpegMainActivity extends Activity {
     private ProgressDialog dialog;
 
     //视频地址
-    String[] videoUrl = {"http://192.168.8.82:4000/videos/20151231/1451542576283.mp4",
-            "http://ac-A7cn1GAf.clouddn.com/07fdd773c2068907.mp4",
-            "http://192.168.8.82:4000/videos/20151231/1451542576283.mp4",
-            "http://ac-A7cn1GAf.clouddn.com/07fdd773c2068907.mp4",
-            "http://192.168.8.82:4000/videos/20151231/1451542576283.mp4",
-            "http://ac-A7cn1GAf.clouddn.com/07fdd773c2068907.mp4",
-            "http://192.168.8.82:4000/videos/20151231/1451542576283.mp4",
-            "http://ac-A7cn1GAf.clouddn.com/07fdd773c2068907.mp4",
-            "http://192.168.8.82:4000/videos/20151231/1451542576283.mp4",
+    String[] videoUrl = {"http://ac-A7cn1GAf.clouddn.com/07fdd773c2068907.mp4",
             "http://ac-A7cn1GAf.clouddn.com/07fdd773c2068907.mp4"};
 
     //视频键
@@ -96,6 +77,8 @@ public class FfmpegMainActivity extends Activity {
     //FFmpegMediaMetadataRetriever获取视频缩略图
     private Bitmap getVideoThumbnail(int time, String videoUrl, String videoName) {
 
+        PictureAirLog.d("get video thumbnail---->");
+
         Bitmap bitmap = null;
         FFmpegMediaMetadataRetriever fmmr = new FFmpegMediaMetadataRetriever();
         try {
@@ -106,7 +89,7 @@ public class FfmpegMainActivity extends Activity {
             //获取视频的帧
             bitmap = fmmr.getFrameAtTime();
             if (bitmap != null) {
-                Log.e("====", "time:" + time);
+                Log.e("====", " get video thumbnail time: " + time);
                 Bitmap b2 = fmmr
                         .getFrameAtTime(
                                 time,
@@ -123,7 +106,7 @@ public class FfmpegMainActivity extends Activity {
 
                 //放入缓存
                 ACache.get(this).put(videoName, bitmap);
-                Log.e("========", "videoName" + videoName);
+                Log.e("========", "videoName " + videoName);
             }
         } catch (IllegalArgumentException ex) {
             ex.printStackTrace();
@@ -144,7 +127,7 @@ public class FfmpegMainActivity extends Activity {
         @Override
         public void run() {
             super.run();
-            Log.e("main", "in background--->" + threadId);
+            Log.e("main", "in background---> " + threadId);
             if (ACache.get(FfmpegMainActivity.this).getAsBitmap(videoName[threadId]) == null) {
                 getVideoThumbnail(1000000, videoUrl[threadId], videoName[threadId]);
             }
