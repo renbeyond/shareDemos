@@ -157,9 +157,9 @@ public class RxjavaAndRetrofitActivity extends RxAppCompatActivity {
 
                     }
                 })
-                .flatMap(new Func1<Long, Observable<?>>() {
+                .flatMap(new Func1<Object, Observable<?>>() {
                     @Override
-                    public Observable<?> call(Long aLong) {
+                    public Observable<?> call(Object aLong) {
                         return Observable.interval(1, 1, TimeUnit.SECONDS);
                     }
                 })
