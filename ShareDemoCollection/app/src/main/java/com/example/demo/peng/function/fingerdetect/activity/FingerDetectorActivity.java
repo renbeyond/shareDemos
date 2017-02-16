@@ -1,13 +1,15 @@
 package com.example.demo.peng.function.fingerdetect.activity;
 
+import android.Manifest;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
-import android.support.v4.os.CancellationSignal;
+import android.os.CancellationSignal;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -18,6 +20,10 @@ import com.example.demo.R;
 import com.example.demo.peng.function.fingerdetect.crypto.CryptoObjectHelper;
 
 import java.lang.ref.WeakReference;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+
 
 /**
  * FingerprintManagerCompat要在6.0以上才可以使用
@@ -34,7 +40,7 @@ import java.lang.ref.WeakReference;
  * http://blog.csdn.net/baniel01/article/details/51991764
  *
  * */
-public class FingerDetectorActivity extends AppCompatActivity implements View.OnClickListener{
+public class FingerDetectorActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     Button btn1;
@@ -45,8 +51,9 @@ public class FingerDetectorActivity extends AppCompatActivity implements View.On
     TextView tv;
     private static final String SETTING = "setting";
     private static final String HAS_FINGERPRINT_API = "hasFingerApi";
-    private FingerprintManagerCompat fingerprintManagerCompat;
+    private FingerprintManager fingerprintManagerCompat;
     private CancellationSignal cancellationSignal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,10 +93,13 @@ public class FingerDetectorActivity extends AppCompatActivity implements View.On
     public void onClick(View view) {
         if (getSharedPreferences(SETTING, MODE_PRIVATE).getBoolean(HAS_FINGERPRINT_API, false)) {
             if (fingerprintManagerCompat == null) {
-                fingerprintManagerCompat = FingerprintManagerCompat.from(this);
+                fingerprintManagerCompat = (FingerprintManager) getSystemService(FINGERPRINT_SERVICE);
             }
             switch (view.getId()) {
                 case R.id.btn1:
+                    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED) {
+                        return;
+                    }
                     if (!fingerprintManagerCompat.isHardwareDetected()) { //硬件是否支持
                         AlertDialog.Builder builder = new AlertDialog.Builder(this);
                         builder.setTitle("指纹识别").setMessage("当前设备不支持指纹").setCancelable(true).setPositiveButton("确定", null).create().show();
@@ -101,10 +111,12 @@ public class FingerDetectorActivity extends AppCompatActivity implements View.On
 
                 case R.id.btn2:
                 /*
-                 * 这个条件的意思是，你的设备必须是使用屏幕锁保护的，这个屏幕锁可以是password，PIN或者图案都行。为什么是这样呢？因为google原生的逻辑就是：想要使用指纹识别的话，必须首先使能屏幕锁才行
+                 * 这个条件的意思是，你的设备必须是使用屏幕锁保护的，这个屏幕锁可以是password，PIN或者图案都行。
+                 * 为什么是这样呢？因为google原生的逻辑就是：想要使用指纹识别的话，必须首先使能屏幕锁才行
                  * */
                     if (Build.VERSION.SDK_INT >= 16) {
                         KeyguardManager keyguardManager = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
+                        // 如果没有设置密码锁屏，则不能使用指纹识别
                         if (!keyguardManager.isKeyguardSecure()) {
                             AlertDialog.Builder builder = new AlertDialog.Builder(this);
                             builder.setTitle("指纹识别").setMessage("当前设备没有前提密码").setCancelable(true).setPositiveButton("确定", null).create().show();
@@ -119,6 +131,7 @@ public class FingerDetectorActivity extends AppCompatActivity implements View.On
                     break;
 
                 case R.id.btn3:
+
                     if (!fingerprintManagerCompat.hasEnrolledFingerprints()) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(this);
                         builder.setTitle("指纹识别").setMessage("当前设备没有设置指纹").setCancelable(true).setPositiveButton("确定", null).create().show();
@@ -130,6 +143,7 @@ public class FingerDetectorActivity extends AppCompatActivity implements View.On
 
                 case R.id.btn4:
 
+                    // 如果没有录入指纹，则不能使用指纹识别
                     if (fingerprintManagerCompat.isHardwareDetected() && fingerprintManagerCompat.hasEnrolledFingerprints()) {
 
                         try {
@@ -144,7 +158,7 @@ public class FingerDetectorActivity extends AppCompatActivity implements View.On
                              * 第四个参数为重点，需要传入一个FingerprintManagerCompat.AuthenticationCallback的子类
                              * 并重写一些方法，不同的情况回调不同的函数
                              */
-                            fingerprintManagerCompat.authenticate(cryptoObjectHelper.buildCryptoObject(), 0, cancellationSignal, new AuthCallBack(FingerDetectorActivity.this), null);
+                            fingerprintManagerCompat.authenticate(cryptoObjectHelper.buildCryptoObject(), cancellationSignal, 0, new AuthCallBack(FingerDetectorActivity.this), null);
                             btn4.setEnabled(false);
                             btn5.setEnabled(true);
                         } catch (Exception e) {
@@ -231,7 +245,7 @@ public class FingerDetectorActivity extends AppCompatActivity implements View.On
         tv.setText("指纹验证成功");
     }
 
-    static class AuthCallBack extends FingerprintManagerCompat.AuthenticationCallback{
+    static class AuthCallBack extends FingerprintManager.AuthenticationCallback{
 
         WeakReference<FingerDetectorActivity> mActivity;
 
@@ -240,7 +254,9 @@ public class FingerDetectorActivity extends AppCompatActivity implements View.On
         }
 
         /**
-         * 这个接口会再系统指纹认证出现不可恢复的错误的时候才会调用，并且参数errorCode就给出了错误码，标识了错误的原因。这个时候app能做的只能是提示用户重新尝试一遍。
+         * 这个接口会再系统指纹认证出现不可恢复的错误的时候才会调用，
+         * 并且参数errorCode就给出了错误码，标识了错误的原因。
+         * 这个时候app能做的只能是提示用户重新尝试一遍。
          * */
 
         // 当指纹验证失败的时候会回调此函数，失败之后允许多次尝试，失败次数过多会停止响应一段时间然后再停止sensor的工作
@@ -298,10 +314,17 @@ public class FingerDetectorActivity extends AppCompatActivity implements View.On
          * 当我们发现这些异常的时候都应该将认证当做是失败来来处理，为了安全建议大家都这么做。
          * */
 
-        // 当指纹验证失败的时候会回调此函数，失败之后允许多次尝试，失败次数过多会停止响应一段时间然后再停止sensor的工作
         @Override
-        public void onAuthenticationSucceeded(FingerprintManagerCompat.AuthenticationResult result) {
+        public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
             super.onAuthenticationSucceeded(result);
+            try {
+                result.getCryptoObject().getCipher().doFinal();
+
+            } catch (IllegalBlockSizeException e) {
+                e.printStackTrace();
+            } catch (BadPaddingException e) {
+                e.printStackTrace();
+            }
             if (mActivity.get() == null) {
                 return;
             }

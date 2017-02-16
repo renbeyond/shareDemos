@@ -1,15 +1,22 @@
 package com.example.demo.peng.function.fingerdetect.crypto;
 
+import android.hardware.fingerprint.FingerprintManager;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyPermanentlyInvalidatedException;
 import android.security.keystore.KeyProperties;
-import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 
+import java.io.IOException;
+import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
+import java.security.cert.CertificateException;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
 
 /// <summary>
 /// Sample code for building a CryptoWrapper
@@ -30,6 +37,7 @@ public class CryptoObjectHelper
     BLOCK_MODE + "/" +
     ENCRYPTION_PADDING;
     final KeyStore _keystore;
+    Cipher cipher;
 
     public CryptoObjectHelper() throws Exception
     {
@@ -37,30 +45,17 @@ public class CryptoObjectHelper
         _keystore.load(null);
     }
 
-    public FingerprintManagerCompat.CryptoObject buildCryptoObject() throws Exception
+    public FingerprintManager.CryptoObject buildCryptoObject() throws Exception
     {
         Cipher cipher = createCipher(true);
-        return new FingerprintManagerCompat.CryptoObject(cipher);
+        return new FingerprintManager.CryptoObject(cipher);
     }
 
     Cipher createCipher(boolean retry) throws Exception
     {
         Key key = GetKey();
-        Cipher cipher = Cipher.getInstance(TRANSFORMATION);
-        try
-        {
-            cipher.init(Cipher.ENCRYPT_MODE | Cipher.DECRYPT_MODE, key);
-        } catch(KeyPermanentlyInvalidatedException e)
-        {
-            _keystore.deleteEntry(KEY_NAME);
-            if(retry)
-            {
-                createCipher(false);
-            } else
-            {
-                throw new Exception("Could not create the cipher for fingerprint authentication.", e);
-            }
-        }
+        cipher = Cipher.getInstance(TRANSFORMATION);
+        initCipher();
         return cipher;
     }
 
@@ -87,5 +82,19 @@ public class CryptoObjectHelper
                         .build();
         keyGen.init(keyGenSpec);
         keyGen.generateKey();
+    }
+
+    public boolean initCipher() {
+        try {
+            _keystore.load(null);
+            SecretKey key = (SecretKey) _keystore.getKey(KEY_NAME, null);
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+            return true;
+        } catch (KeyPermanentlyInvalidatedException e) {
+            return false;
+        } catch (KeyStoreException | CertificateException | UnrecoverableKeyException | IOException
+                | NoSuchAlgorithmException | InvalidKeyException e) {
+            throw new RuntimeException("Failed to init Cipher", e);
+        }
     }
 }
