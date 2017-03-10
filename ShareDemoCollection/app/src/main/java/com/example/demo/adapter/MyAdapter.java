@@ -5,17 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.demo.R;
-import com.example.demo.constant.Constants;
 import com.example.demo.entity.DemoInfo;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Eric on 16/2/24.
@@ -68,8 +64,8 @@ public class MyAdapter extends BaseAdapter {
         }
 
         viewHold.tvTitle.setText(listInfo.get(position).getTitle());
-        viewHold.tvAuthor.setText(listInfo.get(position).getAuthor());
-        viewHold.tvDate.setText(listInfo.get(position).getDate());
+        viewHold.tvAuthor.setText("分享者：" + listInfo.get(position).getAuthor());
+        viewHold.tvDate.setText("分享日期：" + listInfo.get(position).getDate());
 
         return convertView;
     }

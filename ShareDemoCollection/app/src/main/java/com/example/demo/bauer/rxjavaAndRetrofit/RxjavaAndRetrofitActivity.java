@@ -432,8 +432,8 @@ public class RxjavaAndRetrofitActivity extends RxAppCompatActivity {
 
                     }
                 });
-        Log.d("tag", "over--》" + subscription.isUnsubscribed());//此处，为false，说明此时，还没订阅，说明是异步处理
-        if (subscription.isUnsubscribed()) subscription.unsubscribe();//可以取消订阅
+        Log.d("tag", "over--》" + subscription.isUnsubscribed());
+        if (!subscription.isUnsubscribed()) subscription.unsubscribe();//可以取消订阅
         Log.d("tag", "done");
     }
 

@@ -30,5 +30,5 @@ public class Constants {
     public static final DemoInfo demoInfo20 = new DemoInfo("20.LeakCanary","Beyond","2016/10/27");
     public static final DemoInfo demoInfo21 = new DemoInfo("21.7.0新功能","Peng","2016/11/03");
     public static final DemoInfo demoInfo22 = new DemoInfo("22.RxJava","Bauer","2016/11/10");
-    public static final DemoInfo demoInfo23 = new DemoInfo("23.指纹识别","Peng","2016/11/11");
+    public static final DemoInfo demoInfo23 = new DemoInfo("23.指纹识别","Peng","2017/2/16");
 }
